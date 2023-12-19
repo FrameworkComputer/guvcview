@@ -32,6 +32,23 @@
 #include "gview.h"
 #include "../config.h"
 
+static uint8_t fx_bin_treshold = 0x7F; /* 127 -> 50% */
+
+/*
+ * set fx binary filter treshold
+ * args:
+ *    treshold - 0x0 to 0xff
+ *
+ * asserts:
+ *    none
+ *
+ * returns: void
+ */
+void set_fx_bin_treshold(uint8_t treshold) 
+{
+	fx_bin_treshold = treshold;
+}
+
 /*random generator (HAS_GSL is set in ../config.h)*/
 #ifdef HAS_GSL
 	#include <gsl/gsl_rng.h>
@@ -356,6 +373,31 @@ static void fx_yu12_monochrome(uint8_t* frame, int width, int height)
 	for(i=0; i < (width * height) / 2; ++i)
 	{	/* keep Y - luma */
 		*puv++=0x80;/*median (half the max value)=128*/
+	}
+}
+
+/*
+ * Monochromatic Binary effect for yu12 frame
+ * args:
+ *     frame - pointer to frame buffer (yu12 format)
+ *     width - frame width
+ *     height- frame height
+ *
+ * asserts:
+ *     frame is not null
+ *
+ * returns: void
+ */
+static void fx_yu12_binary(uint8_t* frame, int width, int height)
+{
+	uint8_t *puv = frame;
+	int i = 0;
+	for(i=0; i < (width * height); ++i)
+	{
+		if(*puv <= fx_bin_treshold)
+			*puv++ = 0;
+		else
+			*puv++ = 255;
 	}
 }
 
@@ -1309,6 +1351,10 @@ void render_fx_apply(uint8_t *frame, int width, int height, uint32_t mask)
 
 		if(mask & REND_FX_YUV_BLUR2)
 			fx_yu12_gauss_blur(frame, width, height, 6, 1);
+
+		if(mask & REND_FX_YUV_BINARY)
+			fx_yu12_binary (frame, width, height);
+
 	}
 	else
 		render_clean_fx();

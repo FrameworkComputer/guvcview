@@ -522,6 +522,19 @@ int gui_attach_gtk3_videoctrls(GtkWidget *parent)
 	g_signal_connect (GTK_CHECK_BUTTON(FiltBlur2Enable), "toggled",
 		G_CALLBACK (render_fx_filter_changed), NULL);
 
+	/* Binary */
+	GtkWidget *FiltBinEnable = gtk_check_button_new_with_label (_(" Binary"));
+	g_object_set_data (G_OBJECT (FiltBinEnable), "filt_info", GINT_TO_POINTER(REND_FX_YUV_BINARY));
+	gtk_widget_set_halign (FiltBinEnable, GTK_ALIGN_FILL);
+	gtk_widget_set_hexpand (FiltBinEnable, TRUE);
+	gtk_grid_attach(GTK_GRID(table_filt), FiltBinEnable, 1, 2, 1, 1);
+
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(FiltBinEnable),
+		(get_render_fx_mask() & REND_FX_YUV_BINARY) > 0);
+	gtk_widget_show (FiltBinEnable);
+	g_signal_connect (GTK_CHECK_BUTTON(FiltBinEnable), "toggled",
+		G_CALLBACK (render_fx_filter_changed), NULL);
+
 	/* ----- OSD controls -----*/
 	line++;
 	GtkWidget *label_osd = gtk_label_new(_("---- OSD ----"));

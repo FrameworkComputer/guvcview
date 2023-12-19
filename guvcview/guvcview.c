@@ -274,6 +274,8 @@ int main(int argc, char *argv[])
 	set_render_fx_mask(my_config->video_fx);
 	set_audio_fx_mask(my_config->audio_fx);
 
+	set_fx_bin_treshold(my_config->fx_bin_treshold);
+
 	/*set OSD mask*/
 	/*make sure VU meter OSD is disabled since it's set by the audio capture*/
 	my_config->osd_mask &= ~REND_OSD_VUMETER_MONO;

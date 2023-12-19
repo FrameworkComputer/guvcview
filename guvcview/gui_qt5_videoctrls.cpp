@@ -395,6 +395,16 @@ int MainWindow::gui_attach_qt5_videoctrls(QWidget *parent)
 	/*connect signal*/
 	connect(FiltBlur2Enable, SIGNAL(stateChanged(int)), this, SLOT(render_fx_filter_changed(int)));
 
+	/* Binary*/
+	QCheckBox *FiltBinEnable = new QCheckBox(_(" Binary"), table_filt);
+	FiltBinEnable->setProperty("filt_info", REND_FX_YUV_BINARY);
+	FiltBinEnable->show();
+
+	filt_layout->addWidget(FiltBinEnable, 2, 1);
+	FiltBinEnable->setChecked((get_render_fx_mask() & REND_FX_YUV_BINARY) > 0);
+	/*connect signal*/
+	connect(FiltBinEnable, SIGNAL(stateChanged(int)), this, SLOT(render_fx_filter_changed(int)));
+
 	/* ----- OSD controls -----*/
 	line++;
 	QLabel *label_osd = new QLabel(_("---- OSD ----"),video_controls_grid);

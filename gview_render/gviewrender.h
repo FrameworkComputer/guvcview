@@ -68,6 +68,7 @@ __BEGIN_DECLS
 #define REND_FX_YUV_POW2_DISTORT (1<<10)
 #define REND_FX_YUV_BLUR (1<<11)
 #define REND_FX_YUV_BLUR2 (1<<12)
+#define REND_FX_YUV_BINARY (1<<13)
 
 /*OSD FLAGS*/
 #define REND_OSD_NONE           (0)
@@ -262,6 +263,19 @@ int render_call_event_callback(int id);
  * returns: void
  */
 void render_frame_fx(uint8_t *frame, uint32_t mask);
+
+
+/*
+ * set fx binary filter treshold
+ * args:
+ *    treshold - 0x0 to 0xff
+ *
+ * asserts:
+ *    none
+ *
+ * returns: void
+ */
+void set_fx_bin_treshold(uint8_t treshold);
 
 /*
  * Apply OSD mask
