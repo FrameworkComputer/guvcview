@@ -197,6 +197,19 @@ int enum_v4l2_devices()
         }
         v4l2_close(fd);
 
+        uint32_t caps;
+        if(v4l2_cap.capabilities & V4L2_CAP_DEVICE_CAPS) 
+        {
+            caps = v4l2_cap.device_caps;
+        } else {
+            caps = v4l2_cap.capabilities;
+        }
+        
+        if(!(caps & V4L2_CAP_VIDEO_CAPTURE)) 
+        {
+            continue;
+        }
+
         num_dev++;
         /* Update the device list*/
         my_device_list.list_devices = realloc(my_device_list.list_devices, num_dev * sizeof(v4l2_dev_sys_data_t));
