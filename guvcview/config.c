@@ -156,7 +156,7 @@ int config_save(const char *filename)
 	fprintf(fp, "audio_device=%i\n", my_config.audio_device);
 	fprintf(fp, "#video fx mask \n");
 	fprintf(fp, "video_fx=0x%x\n", my_config.video_fx);
-	fprintf(fp, "#fx binary filter treshold (0x0 to 0xff): default=0x7f (50%)\n");
+	fprintf(fp, "#fx binary filter treshold (0x0 to 0xff): default=0x7f (50%%)\n");
 	fprintf(fp, "fx_bin_treshold=0x%x\n", my_config.fx_bin_treshold);
 	fprintf(fp, "#audio fx mask \n");
 	fprintf(fp, "audio_fx=0x%x\n", my_config.audio_fx);
