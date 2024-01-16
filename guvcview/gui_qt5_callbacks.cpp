@@ -1771,7 +1771,6 @@ void MainWindow::keyPressEvent(QKeyEvent* e)
 	
 	switch (e->key())
     {
-    		case Qt::Key_WebCam:
 		case Qt::Key_Camera:
 		case Qt::Key_WebCam:
 			/* camera button pressed */
