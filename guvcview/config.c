@@ -339,7 +339,7 @@ int config_load(const char *filename)
 		else if(strcmp(token, "crosshair_color") == 0)
 			my_config.crosshair_color = (uint32_t) strtoul(value, NULL, 16);
 		else if(strcmp(token, "crosshair_size") == 0)
-			my_config.crosshair_color = (int) strtoul(value, NULL, 10);
+			my_config.crosshair_size = (int) strtoul(value, NULL, 10);
 		else
 			fprintf(stderr, "GUVCVIEW: (config) skiping invalid entry at line %i ('%s', '%s')\n", line, token, value);
 
