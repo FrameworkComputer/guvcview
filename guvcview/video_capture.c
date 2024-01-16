@@ -1013,6 +1013,12 @@ void *capture_loop(void *data)
 	render_set_verbosity(debug_level);
 
 	render_set_crosshair_color(my_config->crosshair_color);
+	/*make sure we are not over the frame limits*/
+	if(my_config->crosshair_size > v4l2core_get_frame_width(my_vd))
+		my_config->crosshair_size = v4l2core_get_frame_width(my_vd);
+	if(my_config->crosshair_size > v4l2core_get_frame_height(my_vd))
+		my_config->crosshair_size = v4l2core_get_frame_height(my_vd);
+	render_set_crosshair_size(my_config->crosshair_size);
 
 	if(render_init(
 		render,

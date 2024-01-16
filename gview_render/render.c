@@ -63,6 +63,7 @@ static int my_height = 0;
 
 static uint32_t my_osd_mask = REND_OSD_NONE;
 static uint32_t my_crosshair_color_rgb = 0x0000FF00;
+static int my_crosshair_size = 24;
 
 static float osd_vu_level[2] = {0, 0};
 
@@ -162,6 +163,21 @@ void render_set_crosshair_color(uint32_t rgb_color)
 }
 
 /*
+ * set the osd crosshair size
+ * args:
+ *   size - 24
+ *
+ * asserts:
+ *    none
+ *
+ * returns: none
+ */
+void render_set_crosshair_size(int size)
+{
+	my_crosshair_size = size;
+}
+
+/*
  * get the osd mask
  * args:
  *   none
@@ -184,13 +200,27 @@ uint32_t render_get_osd_mask()
  * asserts:
  *    none
  *
- * returns: osd rgb color
+ * returns: osd crosshair rgb color
  */
 uint32_t render_get_crosshair_color()
 {
 	return (my_crosshair_color_rgb);
 }
 
+/*
+ * get the osd crosshair size
+ * args:
+ *   none
+ *
+ * asserts:
+ *    none
+ *
+ * returns: osd crosshair size
+ */
+int render_get_crosshair_size()
+{
+	return (my_crosshair_size);
+}
 /*
  * set the vu level for the osd vu meter
  * args:

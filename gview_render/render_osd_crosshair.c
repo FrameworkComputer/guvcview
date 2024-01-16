@@ -141,6 +141,7 @@ void render_osd_crosshair(uint8_t *frame, int width, int height)
 	color.v = 0;
 
 	uint32_t rgb_color = render_get_crosshair_color();
+	int size = render_get_crosshair_size();
 
 	uint8_t r = (uint8_t) ((rgb_color & 0x00FF0000) >> 16);
 	uint8_t g = (uint8_t) ((rgb_color & 0x0000FF00) >> 8);
@@ -150,5 +151,5 @@ void render_osd_crosshair(uint8_t *frame, int width, int height)
 	color.u = CLIP(-0.147*(r-128) - 0.289*(g-128) + 0.436*(b-128) + 128);
 	color.v = CLIP(0.615*(r-128) - 0.515*(g-128) - 0.100*(b-128) + 128);
 
-	plot_crosshair_yu12(frame, 24, width, height, &color);
+	plot_crosshair_yu12(frame, size, width, height, &color);
 }

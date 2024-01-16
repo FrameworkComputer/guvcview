@@ -141,9 +141,33 @@ void render_set_crosshair_color(uint32_t rgb_color);
  * asserts:
  *    none
  *
- * returns: osd rgb color
+ * returns: osd crosshair rgb color
  */
 uint32_t render_get_crosshair_color();
+
+/*
+ * set the osd crosshair size
+ * args:
+ *   size - 24
+ *
+ * asserts:
+ *    none
+ *
+ * returns: none
+ */
+void render_set_crosshair_size(int size);
+
+/*
+ * get the osd crosshair size
+ * args:
+ *   none
+ *
+ * asserts:
+ *    none
+ *
+ * returns: osd crosshair size
+ */
+int render_get_crosshair_size();
 
 /*
  * get render width
