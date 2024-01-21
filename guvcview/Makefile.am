@@ -75,11 +75,11 @@ endif
 
 if ENABLE_SFML
 
-if ENABLE_SHARED
+#if ENABLE_SHARED
  #do nothing
-else
+#else
  guvcview_LDADD += -lGL
-endif
+#endif
 
 endif
 

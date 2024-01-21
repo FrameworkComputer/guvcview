@@ -1,4 +1,17 @@
-guvcview (2.0.7)
+guvcview (2.1.0)
+
+   * Fix audio channels deprecated warning for avcodec >= 58
+   * Add button click support for certain type of digital microscopes
+   * Small fixes
+   * Fix minimum version for audio channels api deprecated warning for avcodec >= 59
+   * Fix COPYING to the same GPL version (v2) as the source files
+   * Add binary fx filter
+   * Make guvcview skip metadada devices
+   * Enable OSD crosshair size to be changed in config
+
+ -- Paulo Assis <pj.assis@gmail.com> Sun, 21 Jan 2024 17:22:00 +0100
+
+guvcview (2.0.8)
 
    * Fix libav API break (ticket #70)
    * Update autoconf scripts

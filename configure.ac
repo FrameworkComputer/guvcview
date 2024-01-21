@@ -9,8 +9,8 @@ dnl --------------------------------
 dnl Initialization macros (sets PACKAGE and VERSION)
 dnl --------------------------------
 m4_define([guvcview_major], [2])
-m4_define([guvcview_minor], [0])
-m4_define([guvcview_micro], [8])
+m4_define([guvcview_minor], [1])
+m4_define([guvcview_micro], [0])
 
 m4_define([guvcview_version],
           [guvcview_major.guvcview_minor.guvcview_micro])
@@ -123,7 +123,7 @@ AC_SUBST(GVIEWV4L2CORE_LD_NAME)
 
 #release versioning
 GVIEWV4L2CORE_CURRENT_VERSION=2
-GVIEWV4L2CORE_REVISION_VERSION=1
+GVIEWV4L2CORE_REVISION_VERSION=2
 GVIEWV4L2CORE_AGE_VERSION=0
 
 #API version (SONAME)
@@ -197,7 +197,7 @@ AC_SUBST(GVIEWRENDER_LD_NAME)
 
 #release versioning
 GVIEWRENDER_CURRENT_VERSION=2
-GVIEWRENDER_REVISION_VERSION=1
+GVIEWRENDER_REVISION_VERSION=2
 GVIEWRENDER_AGE_VERSION=0
 
 #API version (SONAME)
@@ -303,7 +303,7 @@ AC_SUBST(GVIEWAUDIO_LD_NAME)
 
 #release versioning
 GVIEWAUDIO_CURRENT_VERSION=2
-GVIEWAUDIO_REVISION_VERSION=0
+GVIEWAUDIO_REVISION_VERSION=2
 GVIEWAUDIO_AGE_VERSION=0
 
 #API version (SONAME)
@@ -368,7 +368,7 @@ AC_SUBST(GVIEWENCODER_LD_NAME)
 
 #release versioning
 GVIEWENCODER_CURRENT_VERSION=2
-GVIEWENCODER_REVISION_VERSION=1
+GVIEWENCODER_REVISION_VERSION=2
 GVIEWENCODER_AGE_VERSION=0
 
 #API version (SONAME)
