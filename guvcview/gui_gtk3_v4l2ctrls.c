@@ -751,6 +751,7 @@ void gui_gtk3_update_controls_state()
 
 		/*update flags (enable disable)*/
 		if((current->control.flags & V4L2_CTRL_FLAG_GRABBED) ||
+            (current->control.flags & V4L2_CTRL_FLAG_READ_ONLY) ||
             (current->control.flags & V4L2_CTRL_FLAG_DISABLED))
         {
 			if(cur_widget->label)
